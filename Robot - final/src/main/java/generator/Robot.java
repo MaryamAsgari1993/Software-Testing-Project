@@ -84,20 +84,20 @@ public class Robot {
     	return userData;
      
     }
-    public void placeRobot(Location location, ArraySheet table) {
-        if (table == null) {
-            throw new BugReporter(("Table not found"));
+    public void placeRobot(Location location, ArraySheet arraysheet) {
+        if (arraysheet == null) {
+            throw new BugReporter(("ArraySheet not found"));
         }
 
         if (location == null) {
             throw new BugReporter("Location not found");
         }
 
-        if (!table.validateLocation(location)) {
+        if (!arraysheet.validateLocation(location)) {
             throw new BugReporter("Invalid location");
         }
-        location.setMaxX(table.getRows());
-        location.setMaxY(table.getColumns());
+        location.setMaxX(arraysheet.getRows());
+        location.setMaxY(arraysheet.getColumns());
         setLocation(location);
     }
 

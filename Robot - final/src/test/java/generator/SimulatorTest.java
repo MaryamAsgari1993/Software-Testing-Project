@@ -3,7 +3,7 @@ package generator;
 import junit.framework.TestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.Test;
-
+import org.easymock.EasyMock;
 import util.Command;
 import util.Heading;
 import util.Mode;
@@ -26,15 +26,30 @@ public class SimulatorTest extends TestCase {
 	}
 	
 	 @Test
-	    public void testPlaceCommand() {
+	    public void testPlaceCommandInnerFunctionality() {
 	        ArraySheet.floor= arraysheet.initializeLocation();
 	        Location location = new Location(0, 0, Heading.NORTH, Mode.UP, arraysheet);
 	        robot.placeRobot(location, arraysheet);
 	        assertEquals(location, robot.getLocation());
 	        
 	    }
-
+	 
+	 
 	 @Test
+	 public void testPlaceCommand() {
+
+		 
+		 simulator.placeCommand();
+			
+		 assertEquals(Heading.NORTH, robot.location.getHeading());
+		 assertEquals(Mode.UP, robot.location.getMode());
+		 assertEquals("0,0,NORTH,UP", robot.getLocation().toString());
+		
+		
+	 }
+
+
+	 	@Test
 	    public void testMoveCommand() {
 
 	        simulator.moveCommand(4);
@@ -43,6 +58,8 @@ public class SimulatorTest extends TestCase {
 	        assertEquals(finalPosition.getY(), 4);
 	        assertEquals(finalPosition.getHeading(), Heading.NORTH);
 	 }
+	 	
+	
 	 
 	 @Test
 	 public void testOtherCommandCHangeDirectionToLeft() {

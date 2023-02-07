@@ -1,0 +1,11 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Robot,default,Main,9,0,0,0,4,0,2,0,2,0
+Robot,input,InputReader,110,110,10,24,34,26,8,14,2,3
+Robot,util,Heading,0,97,0,4,0,15,0,7,0,5
+Robot,util,Mode,0,68,0,4,0,13,0,7,0,5
+Robot,util,Command,0,139,0,4,0,18,0,6,0,4
+Robot,errortracker,BugReporter,0,9,0,0,0,4,0,2,0,2
+Robot,generator,Robot,7,220,2,20,3,59,4,20,2,11
+Robot,generator,Location,4,175,1,13,2,48,1,21,0,15
+Robot,generator,ArraySheet,0,67,3,9,0,17,3,8,0,5
+Robot,generator,Simulator,0,81,1,6,0,27,1,11,0,6

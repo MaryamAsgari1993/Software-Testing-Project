@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Heading.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Robot</a> &gt; <a href="index.source.html" class="el_package">util</a> &gt; <span class="el_source">Heading.java</span></div><h1>Heading.java</h1><pre class="source lang-java linenums">package util;
+<span class="fc" id="L2">public enum Heading {</span>
+<span class="fc" id="L3">	NORTH(&quot;NORTH&quot;),</span>
+<span class="fc" id="L4">	EAST(&quot;EAST&quot;),</span>
+<span class="fc" id="L5">	SOUTH(&quot;SOUTH&quot;),</span>
+<span class="fc" id="L6">	WEST(&quot;WEST&quot;);</span>
+
+	private String value;
+
+<span class="fc" id="L10">	Heading(String value) {</span>
+<span class="fc" id="L11">		this.value = value;</span>
+<span class="fc" id="L12">	}</span>
+
+	public static Heading from(String value) {
+<span class="fc bfc" id="L15" title="All 2 branches covered.">		for (Heading head : values()) {</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">			if (head.getHeading().equalsIgnoreCase(value)) {</span>
+<span class="fc" id="L17">				return head;</span>
+			}
+		}
+<span class="fc" id="L20">		return null;</span>
+	}
+
+	public Heading changeHeading(int rotatePoint) {
+<span class="fc" id="L24">		int resultIndex = ((ordinal() + rotatePoint) + 4) % 4;</span>
+<span class="fc" id="L25">		return values()[resultIndex];</span>
+	}
+
+	public String getHeading() {
+<span class="fc" id="L29">		return value;</span>
+	}
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

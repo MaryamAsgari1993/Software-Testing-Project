@@ -26,7 +26,7 @@ public class RobotTest extends TestCase {
 		try {
 			robot.placeRobot(new Location(0, 0, Heading.NORTH, Mode.UP, arraysheet), null);
 		} catch (BugReporter ex) {
-			assertEquals("Table not found", ex.getMessage());
+			assertEquals("ArraySheet not found", ex.getMessage());
 		}
 	}
 	@Test

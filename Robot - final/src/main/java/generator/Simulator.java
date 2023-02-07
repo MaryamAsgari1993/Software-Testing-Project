@@ -5,6 +5,7 @@ package generator;
 
 import java.util.ArrayList;
 
+import net.bytebuddy.asm.Advice.Exit;
 import util.Command;
 import util.Heading;
 import util.Mode;
@@ -23,8 +24,8 @@ public class Simulator {
         Heading direction = Heading.from("NORTH");
         Mode mode = Mode.from("up");
         ArraySheet.floor= sheet.initializeLocation();
-        Location position = new Location(0, 0, direction, mode, sheet);
-        bot.placeRobot(position, sheet);
+        Location location = new Location(0, 0, direction, mode, sheet);
+        bot.placeRobot(location, sheet);
       
     }
     public void moveCommand(int step){
@@ -33,9 +34,7 @@ public class Simulator {
     public ArrayList<String> otherCommand(Command currentCommand) {
  
         ArrayList<String> output = new ArrayList<>();
-        if (bot.getLocation() == null) {
-            return output;
-        }
+
         
         
         switch (currentCommand) {
@@ -58,6 +57,8 @@ public class Simulator {
             case C:
                 output =bot.report();
                 break;
+      
+            	
         }
         return output;
     }
