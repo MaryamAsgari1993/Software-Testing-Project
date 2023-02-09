@@ -1,4 +1,4 @@
-/*
+/**
  * This is the main class that call InputReader class to get the input from user
  */
 

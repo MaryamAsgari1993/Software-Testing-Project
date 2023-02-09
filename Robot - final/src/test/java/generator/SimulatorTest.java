@@ -1,3 +1,8 @@
+/**
+ * Test class for testing the functionality of the Simulator method.
+ * @author Maryam Asgari and Shima Omidvar 
+ * @since 2023-02-04
+ */
 package generator;
 
 import junit.framework.TestCase;
@@ -24,7 +29,10 @@ public class SimulatorTest extends TestCase {
 		initialPosition = new Location(0, 0, Heading.NORTH, Mode.UP, arraysheet);
 		robot.placeRobot(initialPosition, arraysheet);
 	}
-	
+	/**
+	 * Test the placeCommand inner functionality. It is imperative to establish the location of the robot when constructing a new floor.
+     * 
+     */ 
 	 @Test
 	    public void testPlaceCommandInnerFunctionality() {
 	        ArraySheet.floor= arraysheet.initializeLocation();
@@ -34,7 +42,10 @@ public class SimulatorTest extends TestCase {
 	        
 	    }
 	 
-	 
+		/**
+		 * Test the placeCommand functionality. It is imperative to establish the location of the robot when constructing a new floor.
+	     * 
+	     */ 
 	 @Test
 	 public void testPlaceCommand() {
 
@@ -48,7 +59,11 @@ public class SimulatorTest extends TestCase {
 		
 	 }
 
-
+		/**
+		 * Test the moveCommand functionality. Upon receipt of the move command, the robot must proceed to the designated location.
+	     * @param step The steps that the robot should move. In this case, It is 4.
+	     * 
+	     */ 
 	 	@Test
 	    public void testMoveCommand() {
 
@@ -59,7 +74,12 @@ public class SimulatorTest extends TestCase {
 	        assertEquals(finalPosition.getHeading(), Heading.NORTH);
 	 }
 	 	
-	
+		/**
+		 * Test the otherCommand functionality with the command left direction.
+	     * @param currentcommand The command that the robot should do it. In this case, It is L.
+	     * @return output. The command result.
+	     * 
+	     */ 
 	 
 	 @Test
 	 public void testOtherCommandCHangeDirectionToLeft() {
@@ -69,6 +89,13 @@ public class SimulatorTest extends TestCase {
 	   
 	 }
 	 
+		/**
+		 * Test the otherCommand functionality with the command right direction.
+	     * @param currentcommand The command that the robot should do it. In this case, It is R.
+	     * @return output. The command result.
+	     * 
+	     */ 
+	 
 	 @Test
 	 public void testOtherCommandCHangeDirectionToRight() {
 		 
@@ -76,6 +103,12 @@ public class SimulatorTest extends TestCase {
 	     assertEquals("EAST", robot.getLocation().getHeading().toString());
 	   
 	 }
+		/**
+		 * Test the otherCommand functionality with the command UP.
+	     * @param currentcommand The command that the robot should do it. In this case, It is U.
+	     * @return output. The command result.
+	     * 
+	     */ 
 	 
 	 @Test
 	 public void testOtherCommandCHangeWritingModeToUp() {
@@ -85,7 +118,12 @@ public class SimulatorTest extends TestCase {
 			assertEquals("UP", robot.getLocation().getMode().toString());
 	   
 	 }
-	 
+		/**
+		 * Test the otherCommand functionality with the command Down.
+	     * @param currentcommand The command that the robot should do it. In this case, It is D.
+	     * @return output. The command result.
+	     * 
+	     */ 
 	 @Test
 	 public void testOtherCommandCHangeWritingModeToDown() {
 			
@@ -93,7 +131,12 @@ public class SimulatorTest extends TestCase {
 			assertEquals("DOWN", robot.getLocation().getMode().toString());
 	   
 	 }
-	 
+		/**
+		 * Test the otherCommand functionality with the command C to report the last condition of the robot.
+	     * @param currentcommand The command that the robot should do it. In this case, It is C.
+	     * @return output.The command result.
+	     * 
+	     */
 	 @Test
 		public void testOtherCommandReport() {
 			ArrayList<String> expected = new ArrayList<>();
@@ -101,6 +144,12 @@ public class SimulatorTest extends TestCase {
 			assertEquals(expected, simulator.otherCommand(Command.C));
 			
 		}
+		/**
+		 * Testing the otherCommand functionality with the command P to report the whole floor.
+	     * @param currentcommand The command that the robot should do it. In this case, It is P.
+	     * @return output. The command result.
+	     * 
+	     */
 	 @Test
 	   public void testOtherCommandPrint() {
 		
@@ -108,7 +157,11 @@ public class SimulatorTest extends TestCase {
 	    expected.add(" ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ");
 	    assertEquals(expected.toString(), simulator.otherCommand(Command.P).toString());
 	   }
-	 
+		/**
+		 * Test the getRobot functionality.
+	     * @return bot An object from Robot class. 
+	     * 
+	     */
 	 @Test
 	 public void testGetRobot() {
 	

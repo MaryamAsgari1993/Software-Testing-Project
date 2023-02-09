@@ -1,4 +1,4 @@
-/*
+/**
  * This is the main class that  get the input from user
  */
 package input;
@@ -9,6 +9,8 @@ import generator.Simulator;
 import util.Command;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import errortracker.BugReporter;
 
 public class InputReader {
 	static Simulator simulator;
@@ -90,10 +92,16 @@ public class InputReader {
 	  	    		return false;
 	  	    	  }
 	 
+	  	    	  try {
 	  	    	   if (Integer.parseInt(commandArgs[1])>100||Integer.parseInt(commandArgs[1])<2)
 	  	    	 {
 		    	   return false;
-	  	    	 }
+	  	    	 }}
+	  	    	  catch (Exception e) {
+	  	    		return false;
+	  	    	 
+	  	    		 
+				}
 	  	      }
 	  	      if (commandArgs[0].compareToIgnoreCase("M")==0)
 	  	      {
@@ -101,12 +109,15 @@ public class InputReader {
 	  	    	  {
 	  	    		return false;
 	  	    	  }
-	  	    
+	  	    try {
 	  	    	  if (Integer.parseInt(commandArgs[1]) <1 )
 	  	    		
 	 	    	 {
 		    	   return false;
-	 	    	 }
+	 	    	 }}
+	  	    catch (Exception e) {
+	  	    	return false;
+			}
 	  	      }
 			  return true;
 		  }

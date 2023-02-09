@@ -1,3 +1,8 @@
+/**
+ * Test class for testing the functionality of the Command class.
+ *@author Maryam Asgari and Shima Omidvar 
+ * @since 2023-02-04
+ */
 package util;
 
 import junit.framework.TestCase;
@@ -5,7 +10,11 @@ import org.junit.Test;
 
 
 public class CommandTest extends TestCase{
-	
+	/**
+     * Testing the isCommand functionality with the valid command.
+     * @param input The command value. It can be U, D, R, L, M, P, C, Q, I, i. 
+     * @return True or false. In this case, return is true.
+     */	
 	@Test
 	public void testIsCommand_validCommand_returnsTrue() {
 		assertTrue(Command.isCommand("U"));
@@ -20,6 +29,11 @@ public class CommandTest extends TestCase{
 		assertTrue(Command.isCommand("i"));
 	}
 	
+	/**
+     * Testing the isCommand functionality with the invalid command.
+     * @param input The command value. It can be Z, Foo, Bar. 
+     * @return True or false. In this case, return is False.
+     */	
 	@Test
 	public void testIsCommand_invalidCommand_returnsFalse() {
 		assertFalse(Command.isCommand("Z"));
@@ -27,6 +41,10 @@ public class CommandTest extends TestCase{
 		assertFalse(Command.isCommand("Bar"));
 	}
 	
+	/**
+     * Testing the GetValue functionality with the valid command.
+     * @return value The command value. It can be U, D, R, L, M, P, C, Q, I. 
+     */	
 	@Test
 	public void testGetValue_validCommand_returnsCorrectValue() {
 		assertEquals("U", Command.U.getValue());

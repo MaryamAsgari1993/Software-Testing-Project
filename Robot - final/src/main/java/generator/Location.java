@@ -1,4 +1,4 @@
-/*
+/**
  * This class determine the robot location.
  */
 package generator;

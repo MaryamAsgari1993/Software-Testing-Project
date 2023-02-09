@@ -1,4 +1,4 @@
-/*
+/**
  * This class instantiate a robot and place the robot in a predefined location and based on the command trigger the robot movement.
  */
 package generator;

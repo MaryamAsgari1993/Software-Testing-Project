@@ -1,4 +1,4 @@
-/*
+/**
  * This class create the surface in which the robot move.
  */
 package generator;

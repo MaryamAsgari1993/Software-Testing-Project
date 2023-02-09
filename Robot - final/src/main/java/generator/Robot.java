@@ -1,4 +1,4 @@
-/*
+/**
  * This class determine the various type of task done by robot.
  */
 package generator;
