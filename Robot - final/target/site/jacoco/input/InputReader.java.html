@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InputReader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Robot</a> &gt; <a href="index.source.html" class="el_package">input</a> &gt; <span class="el_source">InputReader.java</span></div><h1>InputReader.java</h1><pre class="source lang-java linenums">/**
+ * This is the main class that  get the input from user
+ */
+package input;
+
+import generator.ArraySheet;
+import generator.Robot;
+import generator.Simulator;
+import util.Command;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import errortracker.BugReporter;
+
+<span class="fc" id="L15">public class InputReader {</span>
+	static Simulator simulator;
+	 protected static Simulator createRobotSimulator(int row,int column) {
+<span class="fc" id="L18">			ArraySheet table = new ArraySheet(row, column);</span>
+<span class="fc" id="L19">			Robot robot = new Robot();</span>
+<span class="fc" id="L20">			simulator = new Simulator();</span>
+<span class="fc" id="L21">			simulator.initSimulator(robot, table);</span>
+<span class="fc" id="L22">			return simulator;</span>
+		}
+		public static  void readInput() {
+			
+		    while (true) {
+<span class="nc" id="L27">				ArrayList&lt;String&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L28">		    	System.out.println(&quot;Enter Command: &quot;);</span>
+<span class="nc" id="L29">	    	    Scanner input = new Scanner(System.in);</span>
+<span class="nc" id="L30">			    String line = input.nextLine();</span>
+			    
+<span class="nc bnc" id="L32" title="All 2 branches missed.">			    if (!validateCommand(line)) </span>
+			    {
+<span class="nc" id="L34">			    	showHelperMessage();</span>
+<span class="nc" id="L35">			    	continue;</span>
+			    }
+		    
+<span class="nc" id="L38">	    	    String[] commandArgs = line.split(&quot; &quot;);</span>
+	    	 
+<span class="nc bnc" id="L40" title="All 2 branches missed.">		        if (commandArgs[0].compareToIgnoreCase(&quot;Q&quot;)==0) {</span>
+<span class="nc" id="L41">		        	break;</span>
+		        	}
+		        
+<span class="nc bnc" id="L44" title="All 2 branches missed.">		        else if (commandArgs[0].compareToIgnoreCase(&quot;I&quot;)==0) {</span>
+<span class="nc" id="L45">		        	int xyValue=Integer.parseInt(commandArgs[1]);</span>
+<span class="nc" id="L46">		            simulator = createRobotSimulator(xyValue,xyValue);</span>
+<span class="nc" id="L47">		            simulator.placeCommand();</span>
+<span class="nc" id="L48">		            }</span>
+		        
+<span class="nc bnc" id="L50" title="All 2 branches missed.">		        else if ((commandArgs[0].compareToIgnoreCase(&quot;M&quot;)==0)) {</span>
+<span class="nc" id="L51">		        	simulator.moveCommand(Integer.parseInt(commandArgs[1]));</span>
+		        	}
+		        else {
+<span class="nc" id="L54">		        	Command command = Command.valueOf(commandArgs[0].toUpperCase());</span>
+<span class="nc" id="L55">		        	result=simulator.otherCommand(command);</span>
+		        	}
+<span class="nc" id="L57">		        }</span>
+<span class="nc" id="L58">		    }</span>
+		
+		  public static boolean validateCommand(String line)
+		  {
+		
+<span class="fc" id="L63">			  String[] commandArgs = line.split(&quot; &quot;);</span>
+
+			  
+<span class="pc bpc" id="L66" title="1 of 4 branches missed.">			  if (commandArgs.length&gt;2 || commandArgs.length&lt;1 )</span>
+	  	      {
+<span class="fc" id="L68">		    	return false;</span>
+	  	      }
+<span class="fc bfc" id="L70" title="All 2 branches covered.">			  else if ( commandArgs[0].compareToIgnoreCase(&quot;Q&quot;)==0 )</span>
+			 {
+<span class="fc" id="L72">	 	    	  return true;</span>
+
+			  }
+<span class="fc bfc" id="L75" title="All 4 branches covered.">			  else if (simulator==null &amp;&amp;  !(commandArgs[0].compareToIgnoreCase(&quot;I&quot;)==0) )</span>
+			  {
+<span class="fc" id="L77">	  	    	  return false;</span>
+
+			  }
+			  
+			 
+			  
+<span class="fc bfc" id="L83" title="All 2 branches covered.">	  	       if (!Command.isCommand(commandArgs[0]))</span>
+	  	      {
+<span class="fc" id="L85">	  	    	  return false;</span>
+	  	      }
+	  	       
+	  	    
+<span class="fc bfc" id="L89" title="All 2 branches covered.">	  	       if (commandArgs[0].compareToIgnoreCase(&quot;I&quot;)==0 ) {</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">	  	    	  if (commandArgs.length&lt;2)</span>
+	  	    	  {
+<span class="fc" id="L92">	  	    		return false;</span>
+	  	    	  }
+	 
+	  	    	  try {
+<span class="fc bfc" id="L96" title="All 4 branches covered.">	  	    	   if (Integer.parseInt(commandArgs[1])&gt;100||Integer.parseInt(commandArgs[1])&lt;2)</span>
+	  	    	 {
+<span class="fc" id="L98">		    	   return false;</span>
+	  	    	 }}
+<span class="fc" id="L100">	  	    	  catch (Exception e) {</span>
+<span class="fc" id="L101">	  	    		return false;</span>
+	  	    	 
+	  	    		 
+<span class="fc" id="L104">				}</span>
+	  	      }
+<span class="fc bfc" id="L106" title="All 2 branches covered.">	  	      if (commandArgs[0].compareToIgnoreCase(&quot;M&quot;)==0)</span>
+	  	      {
+<span class="fc bfc" id="L108" title="All 2 branches covered.">	  	    	  if (commandArgs.length&lt;2)</span>
+	  	    	  {
+<span class="fc" id="L110">	  	    		return false;</span>
+	  	    	  }
+	  	    try {
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">	  	    	  if (Integer.parseInt(commandArgs[1]) &lt;1 )</span>
+	  	    		
+	 	    	 {
+<span class="fc" id="L116">		    	   return false;</span>
+	 	    	 }}
+<span class="fc" id="L118">	  	    catch (Exception e) {</span>
+<span class="fc" id="L119">	  	    	return false;</span>
+<span class="nc" id="L120">			}</span>
+	  	      }
+<span class="fc" id="L122">			  return true;</span>
+		  }
+		  
+		  public static boolean  showHelperMessage() {
+			   	 
+			  			 
+<span class="nc" id="L128">			  System.out.println(&quot;\033[1;35m Command	 Meaning\033[0m&quot;);</span>
+<span class="nc" id="L129">			  System.out.println(&quot;\033[1;35m [U|u]		Pen up\033[0m&quot;);</span>
+<span class="nc" id="L130">			  System.out.println(&quot;\033[1;35m [D|d]		Pen down\033[0m&quot;);</span>
+<span class="nc" id="L131">			  System.out.println(&quot;\033[1;35m [R|r]		Turn right\033[0m&quot;);</span>
+<span class="nc" id="L132">			  System.out.println(&quot;\033[1;35m [L|l]		Turn left\033[0m&quot;);</span>
+<span class="nc" id="L133">			  System.out.println(&quot;\033[1;35m [M s|m s]	Move forward s spaces (s is a non-negative integer)\033[0m&quot;);</span>
+<span class="nc" id="L134">			  System.out.println(&quot;\033[1;35m [P|p] 		Print the N by N array and display the indices\033[0m&quot;);</span>
+<span class="nc" id="L135">			  System.out.println(&quot;\033[1;35m [C|c]		Print current position of the pen and whether it is up or down and its facing direction\033[0m&quot;);</span>
+<span class="nc" id="L136">			  System.out.println(&quot;\033[1;35m [I n|i n]	Initialize the system: The values of the array floor are zeros and the robot is back to [0, 0], pen up and facing north. n size of the array, an integer greater than zero\033[0m&quot;);</span>
+<span class="nc" id="L137">			  System.out.println(&quot;\033[1;35m [Q|q]		Stop the program\033[0m&quot;);</span>
+<span class="nc" id="L138">			  System.out.println(&quot;\033[1;35m Yoh have to initialize the array by [I n|i n] in First Command\033[0m&quot;);</span>
+			  
+<span class="nc" id="L140">			  return true;</span>
+		        
+		   
+		    }
+
+}
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

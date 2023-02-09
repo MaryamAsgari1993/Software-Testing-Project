@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArraySheet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Robot</a> &gt; <a href="index.source.html" class="el_package">generator</a> &gt; <span class="el_source">ArraySheet.java</span></div><h1>ArraySheet.java</h1><pre class="source lang-java linenums">/**
+ * This class create the surface in which the robot move.
+ */
+package generator;
+
+public class ArraySheet {
+	private int rows;
+	private int columns;
+	public static int [][] floor;
+
+<span class="fc" id="L11">	public ArraySheet(int rows, int columns) {</span>
+<span class="fc" id="L12">		this.rows = rows;</span>
+<span class="fc" id="L13">		this.columns = columns;</span>
+<span class="fc" id="L14">		this.floor=new int [this.rows][this.columns];</span>
+<span class="fc" id="L15">	}</span>
+	
+	public int [][] initializeLocation() {
+<span class="fc bfc" id="L18" title="All 2 branches covered.">		for (int i=0; i&lt;this.getRows(); i++)</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">			for (int j=0; j&lt;this.getColumns(); j++)</span>
+<span class="fc" id="L20">				this.floor[i][j]=0;</span>
+<span class="fc" id="L21">			return floor;</span>
+	}
+
+	public boolean validateLocation(Location location) {
+<span class="fc" id="L25">		int xValue = location.getX();</span>
+<span class="fc" id="L26">		int yValue = location.getY();</span>
+<span class="pc bpc" id="L27" title="3 of 8 branches missed.">		if (xValue &gt; rows || xValue &lt; 0 ||</span>
+				yValue &gt; columns || yValue &lt; 0) {
+<span class="fc" id="L29">			return false;</span>
+		}
+<span class="fc" id="L31">		return true;</span>
+	}
+	
+
+	public int getRows() {
+<span class="fc" id="L36">		return rows;</span>
+	}
+
+	public int getColumns() {
+<span class="fc" id="L40">		return columns;</span>
+	}
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
