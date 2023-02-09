@@ -1,9 +1,0 @@
-util\HeadingTest.class
-generator\SimulatorTest.class
-errortracker\BugReporterTest.class
-generator\RobotTest.class
-generator\LocationTest.class
-input\InputReaderTest.class
-util\CommandTest.class
-util\ModeTest.class
-generator\ArraySheetTest.class
