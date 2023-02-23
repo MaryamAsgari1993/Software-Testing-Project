@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Simulator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Robot1</a> &gt; <a href="index.source.html" class="el_package">generator</a> &gt; <span class="el_source">Simulator.java</span></div><h1>Simulator.java</h1><pre class="source lang-java linenums">/**
+ * This class instantiate a robot and place the robot in a predefined location and based on the command trigger the robot movement.
+ */
+package generator;
+
+import java.util.ArrayList;
+
+import net.bytebuddy.asm.Advice.Exit;
+import util.Command;
+import util.Heading;
+import util.Mode;
+
+<span class="fc" id="L13">public class Simulator {</span>
+    private Robot bot;
+    private ArraySheet sheet;
+
+    public void initSimulator(Robot robot, ArraySheet sheet) {
+<span class="fc" id="L18">        this.bot = robot;</span>
+<span class="fc" id="L19">        this.sheet = sheet;</span>
+<span class="fc" id="L20">    }</span>
+
+    public void placeCommand() {
+        
+<span class="fc" id="L24">        Heading direction = Heading.from(&quot;NORTH&quot;);</span>
+<span class="fc" id="L25">        Mode mode = Mode.from(&quot;up&quot;);</span>
+<span class="fc" id="L26">        ArraySheet.floor= sheet.initializeLocation();</span>
+<span class="fc" id="L27">        Location location = new Location(0, 0, direction, mode, sheet);</span>
+<span class="fc" id="L28">        bot.placeRobot(location, sheet);</span>
+      
+<span class="fc" id="L30">    }</span>
+    public void moveCommand(int step){
+<span class="fc" id="L32">        	bot.move(step);</span>
+<span class="fc" id="L33">        	}</span>
+    public ArrayList&lt;String&gt; otherCommand(Command currentCommand) {
+ 
+<span class="fc" id="L36">        ArrayList&lt;String&gt; output = new ArrayList&lt;&gt;();</span>
+
+        
+        
+<span class="fc bfc" id="L40" title="All 7 branches covered.">        switch (currentCommand) {</span>
+     
+            case L:
+<span class="fc" id="L43">            	bot.left();</span>
+<span class="fc" id="L44">                break;</span>
+            case R:
+<span class="fc" id="L46">            	bot.right();</span>
+<span class="fc" id="L47">                break;</span>
+            case U:
+<span class="fc" id="L49">            	bot.up();</span>
+<span class="fc" id="L50">                break;</span>
+            case D:
+<span class="fc" id="L52">            	bot.down();</span>
+<span class="fc" id="L53">                break;</span>
+            case P:
+<span class="fc" id="L55">              output=bot.print();</span>
+<span class="fc" id="L56">                break;</span>
+            case C:
+<span class="fc" id="L58">                output =bot.report();</span>
+                break;
+      
+            	
+        }
+<span class="fc" id="L63">        return output;</span>
+    }
+
+   
+
+    public Robot getRobot() {
+<span class="fc" id="L69">        return bot;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
