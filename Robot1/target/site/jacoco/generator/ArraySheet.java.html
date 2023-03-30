@@ -8,36 +8,36 @@ public class ArraySheet {
 	private int columns;
 	public static int [][] floor;
 
-<span class="fc" id="L11">	public ArraySheet(int rows, int columns) {</span>
-<span class="fc" id="L12">		this.rows = rows;</span>
-<span class="fc" id="L13">		this.columns = columns;</span>
-<span class="fc" id="L14">		this.floor=new int [this.rows][this.columns];</span>
-<span class="fc" id="L15">	}</span>
+<span class="nc" id="L11">	public ArraySheet(int rows, int columns) {</span>
+<span class="nc" id="L12">		this.rows = rows;</span>
+<span class="nc" id="L13">		this.columns = columns;</span>
+<span class="nc" id="L14">		this.floor=new int [this.rows][this.columns];</span>
+<span class="nc" id="L15">	}</span>
 	
 	public int [][] initializeLocation() {
-<span class="fc bfc" id="L18" title="All 2 branches covered.">		for (int i=0; i&lt;this.getRows(); i++)</span>
-<span class="fc bfc" id="L19" title="All 2 branches covered.">			for (int j=0; j&lt;this.getColumns(); j++)</span>
-<span class="fc" id="L20">				this.floor[i][j]=0;</span>
-<span class="fc" id="L21">			return floor;</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">		for (int i=0; i&lt;this.getRows(); i++)</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">			for (int j=0; j&lt;this.getColumns(); j++)</span>
+<span class="nc" id="L20">				this.floor[i][j]=0;</span>
+<span class="nc" id="L21">			return floor;</span>
 	}
 
 	public boolean validateLocation(Location location) {
-<span class="fc" id="L25">		int xValue = location.getX();</span>
-<span class="fc" id="L26">		int yValue = location.getY();</span>
-<span class="fc bfc" id="L27" title="All 8 branches covered.">		if (xValue &gt; rows || xValue &lt; 0 ||</span>
+<span class="nc" id="L25">		int xValue = location.getX();</span>
+<span class="nc" id="L26">		int yValue = location.getY();</span>
+<span class="nc bnc" id="L27" title="All 8 branches missed.">		if (xValue &gt; rows || xValue &lt; 0 ||</span>
 				yValue &gt; columns || yValue &lt; 0) {
-<span class="fc" id="L29">			return false;</span>
+<span class="nc" id="L29">			return false;</span>
 		}
-<span class="fc" id="L31">		return true;</span>
+<span class="nc" id="L31">		return true;</span>
 	}
 	
 
 	public int getRows() {
-<span class="fc" id="L36">		return rows;</span>
+<span class="nc" id="L36">		return rows;</span>
 	}
 
 	public int getColumns() {
-<span class="fc" id="L40">		return columns;</span>
+<span class="nc" id="L40">		return columns;</span>
 	}
 	
 	

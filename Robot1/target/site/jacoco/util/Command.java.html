@@ -12,36 +12,36 @@ is back to [0, 0], pen up and facing north. n size of the array, an integer grea
 */
 package util;
 
-<span class="fc" id="L15">public enum Command {</span>
-<span class="fc" id="L16">	U(&quot;U&quot;),</span>
-<span class="fc" id="L17">	D(&quot;D&quot;),</span>
-<span class="fc" id="L18">	M(&quot;M&quot;),</span>
-<span class="fc" id="L19">	P(&quot;P&quot;),</span>
-<span class="fc" id="L20">	C(&quot;C&quot;),</span>
-<span class="fc" id="L21">	Q(&quot;Q&quot;),</span>
-<span class="fc" id="L22">	I(&quot;I&quot;),</span>
-<span class="fc" id="L23">	L(&quot;L&quot;),</span>
-<span class="fc" id="L24">	R(&quot;R&quot;);</span>
+<span class="nc" id="L15">public enum Command {</span>
+<span class="nc" id="L16">	U(&quot;U&quot;),</span>
+<span class="nc" id="L17">	D(&quot;D&quot;),</span>
+<span class="nc" id="L18">	M(&quot;M&quot;),</span>
+<span class="nc" id="L19">	P(&quot;P&quot;),</span>
+<span class="nc" id="L20">	C(&quot;C&quot;),</span>
+<span class="nc" id="L21">	Q(&quot;Q&quot;),</span>
+<span class="nc" id="L22">	I(&quot;I&quot;),</span>
+<span class="nc" id="L23">	L(&quot;L&quot;),</span>
+<span class="nc" id="L24">	R(&quot;R&quot;);</span>
 	
 
 	
 	private final String value;
 
-<span class="fc" id="L30">    Command(String value) {</span>
-<span class="fc" id="L31">        this.value = value;</span>
-<span class="fc" id="L32">    }</span>
+<span class="nc" id="L30">    Command(String value) {</span>
+<span class="nc" id="L31">        this.value = value;</span>
+<span class="nc" id="L32">    }</span>
     
     public static boolean isCommand(String input) {
-<span class="fc bfc" id="L35" title="All 2 branches covered.">        for (Command command : Command.values()) {</span>
-<span class="fc bfc" id="L36" title="All 2 branches covered.">            if (command.name().equalsIgnoreCase(input)) {</span>
-<span class="fc" id="L37">                return true;</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (Command command : Command.values()) {</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">            if (command.name().equalsIgnoreCase(input)) {</span>
+<span class="nc" id="L37">                return true;</span>
             }
         }
-<span class="fc" id="L40">        return false;</span>
+<span class="nc" id="L40">        return false;</span>
     }
 
 	public String getValue() {
-<span class="fc" id="L44">		return value;</span>
+<span class="nc" id="L44">		return value;</span>
 	}
 }
 
