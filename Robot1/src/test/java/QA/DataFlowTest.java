@@ -38,7 +38,6 @@ public class DataFlowTest {
                 {"m", false},
                 {"m 0", false},
                 {"m m", false}
-                
         };
     }
 
