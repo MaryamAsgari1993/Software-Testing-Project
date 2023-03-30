@@ -1,10 +1,6 @@
-util\HeadingTest.class
-generator\SimulatorTest.class
+QA\MutationRobot.class
+QA\BlackBoxTests.class
 main\MainTest.class
-errortracker\BugReporterTest.class
-generator\RobotTest.class
-generator\LocationTest.class
-input\InputReaderTest.class
-util\CommandTest.class
-util\ModeTest.class
+QA\DataFlowTest.class
+QA\WhiteBoxTests.class
 generator\ArraySheetTest.class
