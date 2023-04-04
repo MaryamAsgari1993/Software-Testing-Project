@@ -1,11 +1,11 @@
+generator\Robot.class
 errortracker\BugReporter.class
 generator\ArraySheet.class
 generator\Location.class
+input\InputReader.class
 util\Command.class
 generator\Simulator.class
 main\Main.class
 util\Heading.class
-generator\Simulator$1.class
-generator\Robot.class
-input\InputReader.class
 util\Mode.class
+generator\Simulator$1.class

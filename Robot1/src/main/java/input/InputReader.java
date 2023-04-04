@@ -46,6 +46,7 @@ public class InputReader {
 		        	int xyValue=Integer.parseInt(commandArgs[1]);
 		            simulator = createRobotSimulator(xyValue,xyValue);
 		            simulator.placeCommand();
+					break;
 		            }
 		        
 		        else if ((commandArgs[0].compareToIgnoreCase("M")==0)) {
